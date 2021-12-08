@@ -14,4 +14,10 @@ public class Hole implements Misc {
     public Boolean isEmply() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
+

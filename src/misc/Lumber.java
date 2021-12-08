@@ -18,5 +18,9 @@ public class Lumber implements Misc {
     public Coda getObject() {
         return new Coda();
     }
+    @Override
+    public String toString() {
+        return getName();
+    }
 
 }

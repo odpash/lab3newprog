@@ -2,6 +2,7 @@ package places;
 
 import misc.Lumber;
 
+
 public class Hall extends Place{
     Lumber lumber = new Lumber();
     public String getName() {
@@ -9,4 +10,10 @@ public class Hall extends Place{
     }
     public Boolean isEmply() {return false;}
     public Lumber getObject() {return lumber;}
+    @Override
+    public String toString() {
+        return getName();
+    }
+
+
 }

@@ -24,4 +24,8 @@ public class Coda implements Misc {
         return "клокочущую";
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

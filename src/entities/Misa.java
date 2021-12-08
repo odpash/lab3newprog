@@ -27,8 +27,8 @@ public class Misa extends Human implements gender {
     }
 
     @Override
-    public String getGender() {
-        return Genders.FEMALE.genderText();
+    public Genders getGender() {
+        return Genders.FEMALE;
     }
 
     public Boolean getIsCry() {
@@ -40,14 +40,34 @@ public class Misa extends Human implements gender {
         System.out.println(getName() + " плачет.");
         }
 
-        public void sitAndCry() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        return ((Misa) o).getGender().genderText().equals(Genders.FEMALE.genderText());
+    }
+
+
+    public void sitAndCry() {
         Corner corner = new Corner();
-            if (Objects.equals(getGender(), Genders.FEMALE.genderText())) System.out.println("Она уселась в " + corner.getName() + "");
-            if (Objects.equals(getGender(), Genders.MALE.genderText())) System.out.println("Он сел в " + corner.getName() + "");
+        Genders g = getGender();
+            if (equals(g)) {System.out.println("Она уселась в " + corner.getName() + "");}
+            else {System.out.println("Он сел в " + corner.getName() + ""); }
         if (!getIsCry()) {
             setIsCry(true);
         }
         }
+    @Override
+    public String toString() {
+        return getName();
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clothes, cryActionInfo);
+    }
 
 
 }

@@ -9,6 +9,8 @@ import misc.Hole;
 import misc.Lumber;
 import places.Hall;
 
+import java.util.Objects;
+
 public class Homsa extends Human implements gender {
     private Clothes clothes = Clothes.DEFAULT;
     private Emotions emotion = Emotions.CALM;
@@ -80,11 +82,20 @@ public class Homsa extends Human implements gender {
             }
         }
 
-
+    @Override
+    public String toString() {
+        return getName();
+    }
 
 
     @Override
-    public String getGender() {
-        return Genders.MALE.genderText();
+    public int hashCode() {
+        return Objects.hash(clothes, emotion);
+    }
+
+
+    @Override
+    public Genders getGender() {
+        return Genders.MALE;
     }
 }
