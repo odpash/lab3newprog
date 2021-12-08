@@ -1,6 +1,8 @@
 package misc;
 
-public class Hole {
+import interfaces.Misc;
+
+public class Hole implements Misc {
     public String getName() {
         return "дыра";
     }

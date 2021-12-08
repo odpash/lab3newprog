@@ -1,12 +1,19 @@
 package misc;
 
-public class Coda {
+import interfaces.Misc;
+
+public class Coda implements Misc {
     public String getName() {
         return "кода";
     }
 
     public String placedAt() {
         return "под домом";
+    }
+
+    @Override
+    public Boolean isEmply() {
+        return true;
     }
 
     public String getColor() {
@@ -16,4 +23,5 @@ public class Coda {
     public String getSound() {
         return "клокочущую";
     }
+
 }

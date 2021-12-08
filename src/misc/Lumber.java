@@ -1,6 +1,8 @@
 package misc;
 
-public class Lumber {
+import interfaces.Misc;
+
+public class Lumber implements Misc {
     public String getName() {
         return "люк";
     }
@@ -12,4 +14,9 @@ public class Lumber {
     public Boolean isEmply() {
         return false;
     }
+
+    public Coda getObject() {
+        return new Coda();
+    }
+
 }

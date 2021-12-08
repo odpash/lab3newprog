@@ -2,10 +2,14 @@ package entities;
 
 import constants.Clothes;
 import constants.Emotions;
+import constants.Genders;
+import interfaces.gender;
+import misc.Coda;
 import misc.Hole;
+import misc.Lumber;
 import places.Hall;
 
-public class Homsa extends Human {
+public class Homsa extends Human implements gender {
     private Clothes clothes = Clothes.DEFAULT;
     private Emotions emotion = Emotions.CALM;
 
@@ -37,7 +41,7 @@ public class Homsa extends Human {
         System.out.println(getName() + " попытался представить несчастье.");
     }
 
-    public boolean searchTerritory() {
+    public boolean searchHole() {
         Hole hole = new Hole();
         System.out.println(getName() + " осмотрел " + hole.getName() + " на " + hole.placedAt());
         if (hole.isEmply()) {
@@ -49,14 +53,38 @@ public class Homsa extends Human {
         }
         }
 
-        public boolean searchHall() {
-            Hall hall = new Hall();
-            System.out.println(getName() + " приступил к осмотру " + hall.getName());
+        public boolean searchHall(Hall hall) {
 
+            System.out.println(getName() + " приступил к осмотру " + hall.getName());
+            if (hall.isEmply()) {
+                System.out.println(getName() + " ничего не нашел.");
+                return false;
+            }
+            else {
+                System.out.println(getName() + " что-то нашел!");
+                Lumber lumber = hall.getObject();
+                System.out.println("Это " + lumber.getName() + " находящийся " + lumber.placedAt());
+                return true;
+            }
+        }
+
+        public boolean searchLumber(Lumber lumber) {
+            if (lumber.isEmply()){
+                System.out.println(getName() + " ничего не нашел.");
+                return false;
+            }
+            else {
+                Coda coda = new Coda();
+                System.out.println(getName() + " нашел " + coda.getColor() + " " + coda.getSound() + " " + coda.getName() + "!");
+                return true;
+            }
         }
 
 
-    public void searchItemCarefully() {
 
+
+    @Override
+    public String getGender() {
+        return Genders.MALE.genderText();
     }
 }
