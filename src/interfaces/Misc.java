@@ -3,7 +3,7 @@ package interfaces;
 public interface Misc {
     String getName();
 
-    String placedAt();
+    Object placedAt();
 
     Boolean isEmply();
 }

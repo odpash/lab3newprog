@@ -20,4 +20,3 @@ public class Hole implements Misc {
         return getName();
     }
 }
-

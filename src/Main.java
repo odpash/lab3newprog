@@ -2,6 +2,7 @@ import constants.Clothes;
 import constants.Emotions;
 import entities.Homsa;
 import entities.Misa;
+import exceptions.notReadyToCry;
 import misc.Hole;
 import misc.Lumber;
 import places.Hall;
@@ -14,7 +15,13 @@ public class Main {
     private static void runIncredibleStory() {
         Misa misa = new Misa();
         misa.setClothes(Clothes.MOURNING);
-        misa.sitAndCry();
+        //misa.setIsCry(true);
+        try {
+            misa.sitAndCry();
+        } catch (notReadyToCry notReadyToCry) {
+            System.out.println((char) 27 + "[31m[Warning] " + (char)27 + "[0m" + misa.getName() + " не готов" + misa.getGender("lastone") + " плакать!");
+        }
+
 
         Homsa homsa = new Homsa();
         if (misa.getIsCry()) {

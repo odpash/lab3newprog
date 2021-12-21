@@ -1,6 +1,7 @@
 package misc;
 
 import interfaces.Misc;
+import interfaces.additionalObjectInfo;
 
 public class Coda implements Misc {
     public String getName() {
@@ -15,13 +16,22 @@ public class Coda implements Misc {
     public Boolean isEmply() {
         return true;
     }
+    additionalObjectInfo addInfo = new additionalObjectInfo() {
+        @Override
+        public String Color() {
+            return "черный";
+        }
 
+        @Override
+        public String Sound() {
+            return "клокочущую";
+        }
+    };
     public String getColor() {
-        return "черный";
+        return addInfo.Color();
     }
-
     public String getSound() {
-        return "клокочущую";
+        return addInfo.Sound();
     }
 
     @Override
